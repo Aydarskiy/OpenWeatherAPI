@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import org.wheather.GeoLocationUtil;
+import org.weather.GeoLocationUtil;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +65,7 @@ public class GeoLocationAPITest {
 
         // Validate all soft assertions
         softAssert.assertAll();
+
     }
 
     /**
@@ -132,26 +133,9 @@ public class GeoLocationAPITest {
         response.then().body("zip", Matchers.equalTo(expectedZipCode))
                 .body("country", Matchers.equalTo(expectedCountry))
                 .body("name", Matchers.equalTo(expectedCity));
-    }
 
-    /**
-     * Test method for invalid city/state.
-     * - Verifies that the response indicates no results found.
-     */
-    @Test
-    public void testGetLocationByNameInvalidCity() {
-        // Set an invalid location
-        String location = "InvalidCity, XX";
 
-        // Fetch location data for invalid city/state
-        Response response = GeoLocationUtil.getLocationByName(location);
-        response.then().statusCode(200); // Verify the status code is 200
 
-        // Assert that the response is not null
-        Assert.assertNotNull(response, "Response should not be null");
-
-        // Assert that the response indicates no results found
-        Assert.assertEquals("[]", response.asString(), "Response should indicate no results found");
     }
 
     /**
@@ -177,6 +161,28 @@ public class GeoLocationAPITest {
         response.then().body("message", Matchers.equalTo(expectedErrorMessage))
                 .body("cod", Matchers.equalTo("404"));
     }
+
+    /**
+     * Test method for invalid city/state.
+     * - Verifies that the response indicates no results found.
+     */
+    @Test
+    public void testGetLocationByNameInvalidCity() {
+        // Set an invalid location
+        String location = "InvalidCity, XX";
+
+        // Fetch location data for invalid city/state
+        Response response = GeoLocationUtil.getLocationByName(location);
+        response.then().statusCode(200); // Verify the status code is 200
+
+        // Assert that the response is not null
+        Assert.assertNotNull(response, "Response should not be null");
+
+        // Assert that the response indicates no results found
+        Assert.assertEquals("[]", response.asString(), "Response should indicate no results found");
+    }
+
+
 
     /**
      * DataProvider for multiple input types (city/state and zip code).
