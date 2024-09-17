@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="FetchTakeHomeTest">
+    <test name="API Automation">
+        <classes>
+            <class name="org.openweather.GeoLocationAPITest"/>
+        </classes>
+    </test>
+</suite>

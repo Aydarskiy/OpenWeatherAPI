@@ -151,7 +151,7 @@ public class GeoLocationAPITest {
         Assert.assertNotNull(response, "Response should not be null");
 
         // Assert that the response indicates no results found
-        Assert.assertTrue(response.asString().contains("[]"), "Response should indicate no results found");
+        Assert.assertEquals("[]", response.asString(), "Response should indicate no results found");
     }
 
     /**
