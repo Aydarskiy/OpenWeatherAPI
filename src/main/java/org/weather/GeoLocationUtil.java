@@ -14,6 +14,9 @@ public class GeoLocationUtil {
         // Check if any command-line arguments are provided
         if (args.length == 0) {
             System.out.println("Please provide locations.");
+
+            String path = System.getProperty("user.dir");
+            System.out.println(path);
             return;
         }
 
@@ -50,7 +53,7 @@ public class GeoLocationUtil {
         response.then().log().all(); // Log the response details
 
         // Handle the response (e.g., print output to console)
-        handleResponse(response);
+        handleResponseToString(response);
 
         return response;
     }
@@ -77,7 +80,7 @@ public class GeoLocationUtil {
         response.then().log().all(); // Log the response details
 
         // Handle the response (e.g., print output to console)
-        handleResponse(response);
+        handleResponseToString(response);
 
         return response;
     }
@@ -98,7 +101,7 @@ public class GeoLocationUtil {
         response.then().log().all(); // Log the response details
 
         // Handle the response (e.g., print output to console)
-        handleResponse(response);
+        handleResponseToDouble(response);
 
         return response;
     }
@@ -107,14 +110,44 @@ public class GeoLocationUtil {
      * Handles and processes the API response.
      * @param response The API response to handle.
      */
-    private static void handleResponse(Response response) {
+    private static void handleResponseToDouble(Response response) {
         // Convert the response body to a string
         String responseBody = response.asString();
         // Check if the response indicates an error or valid data
         if (responseBody.contains("404") || responseBody.equals("[]")) {
             System.out.println("Result displayed to user \n" + "Invalid input");
         } else {
-            System.out.println("Result displayed to user \n" + responseBody);
+            double lat = response.body().jsonPath().getDouble("lat");
+            double lon = response.body().jsonPath().getDouble("lon");
+            String location = response.body().jsonPath().getString("name");
+
+            System.out.println("Result displayed to user \n"
+                    + "Location is: " + location
+                    + "\nlat is: " + lat
+                    + "\nlon is: " + lon);
+        }
+    }
+
+
+    /**
+     * Handles and processes the API response.
+     * @param response The API response to handle.
+     */
+    private static void handleResponseToString(Response response) {
+        // Convert the response body to a string
+        String responseBody = response.asString();
+        // Check if the response indicates an error or valid data
+        if (responseBody.contains("404") || responseBody.equals("[]")) {
+            System.out.println("Result displayed to user \n" + "Invalid input");
+        } else {
+            String lat = response.body().jsonPath().getString("lat[0]");
+            String lon = response.body().jsonPath().getString("lon[0]");
+            String location = response.body().jsonPath().getString("name[0]");
+
+            System.out.println("Result displayed to user \n"
+                    + "Location is: " + location
+                    + "\nlat is: " + lat
+                    + "\nlon is: " + lon);
         }
     }
 }

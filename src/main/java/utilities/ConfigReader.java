@@ -21,7 +21,7 @@ public class ConfigReader {
 
 
     static {
-        String path = "C:\\Users\\aydar\\IdeaProjects\\FetchTakeHomeTest\\src\\main\\resources\\configurations\\Configuration.properties";
+        String path = System.getProperty("user.dir") + "/src/main/resources/configurations/Configuration.properties";
         try {
             input = new FileInputStream(path); // String needs to be opened to connect a file
             properties = new Properties();     // properties needed to load a file
