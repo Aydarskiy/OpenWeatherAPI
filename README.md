@@ -21,7 +21,7 @@ This project has been packaged into a single executable JAR that includes all de
   ```bash
   mvn -v
 
-## Steps to Run Open Weather API Utlillity:
+## Steps to Run Open Weather API Utlility:
 
 1. Clone this repository:
    ```bash
@@ -37,7 +37,7 @@ This project has been packaged into a single executable JAR that includes all de
   Replace "absolutePathToDownloaded" with absolute path to OpenWeatherAPI-1.0-SNAPSHOT.jar file. (C:\ on Windows, / on Linux or macOS)   
   Replace New York with your desired city name or ZIP code.
 
-## Notes:
+### Notes:
 
 Ensure your `Configuration.properties` file is set up correctly with your own `API_KEY` and `OpenWeatherBaseURL` values.
 
@@ -54,3 +54,16 @@ This command will automatically execute the test suite defined in testng.xml, va
 2. **View test results**:
    
 After running the tests, you can find a detailed report in the `target/surefire-reports` directory.
+
+### Additional Resources
+
+- [OpenWeatherMap API Documentation](https://openweathermap.org/api/geocoding-api)
+- [Maven Documentation](https://maven.apache.org/)
+- [Rest Assured Documentation](https://rest-assured.io/)
+- [TestNG Documentation](https://testng.org/doc/)
+
+### Contact
+
+For any questions or feedback, please contact me at [aydarzarif@gmail.com](mailto:aydarzarif@gmail.com).
+
+
