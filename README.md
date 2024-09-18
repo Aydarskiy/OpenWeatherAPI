@@ -23,9 +23,8 @@ This project has been packaged into a single executable JAR that includes all de
    git clone https://github.com/Aydarskiy/OpenWeatherAPI.git
    cd OpenWeatherAPI
    
-2. Build the project and create an executable JAR:
-   ```bash
-   mvn clean package
+2. Download the Executable JAR
+   You can download the pre-built JAR file from the [Releases page](https://github.com/Aydarskiy/OpenWeatherAPI/releases).
    
 3. Run the application:
    ```bash
