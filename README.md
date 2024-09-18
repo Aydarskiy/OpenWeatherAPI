@@ -15,6 +15,11 @@ This project has been packaged into a single executable JAR that includes all de
 
 ## Prerequisites:
 - Java 17 installed on your system.
+- Maven installed for building and packaging the project.
+ 
+  If Maven is not already installed, you can download and install it from [Maven's official website](https://maven.apache.org/install.html). You can also verify the installation by running the following command in your terminal:
+  ```bash
+  mvn -v
 
 ## Steps to Run Open Weather API Utlillity:
 
@@ -29,16 +34,23 @@ This project has been packaged into a single executable JAR that includes all de
 3. Run the application:
    ```bash
    java -cp "absolutePathToDownloaded/OpenWeatherAPI-1.0-SNAPSHOT.jar" org.weather.GeoLocationUtil New York
-  Replace "absolutePathToDownloaded" with path to OpenWeatherAPI-1.0-SNAPSHOT.jar file. (C:\ on Windows, / on Linux or macOS)   
+  Replace "absolutePathToDownloaded" with absolute path to OpenWeatherAPI-1.0-SNAPSHOT.jar file. (C:\ on Windows, / on Linux or macOS)   
   Replace New York with your desired city name or ZIP code.
-  
+
+## Notes:
+
+Ensure your `Configuration.properties` file is set up correctly with your own `API_KEY` and `OpenWeatherBaseURL` values.
+
+If you receive a "Path for properties file is invalid" message, make sure that the path to the `Configuration.properties` file is specified correctly in the `ConfigReader` class.
 
 
+
+## Running Tests
+1. **Run the tests** using Maven:
+   ```bash
+   mvn test
+This command will automatically execute the test suite defined in testng.xml, validating both positive and negative scenarios for the API calls.
+
+2. **View test results**:
    
-   
-
-
-
-
-   
-
+After running the tests, you can find a detailed report in the `target/surefire-reports` directory.
