@@ -16,7 +16,7 @@ This project has been packaged into a single executable JAR that includes all de
 ## Prerequisites:
 - Java 17 installed on your system.
 
-## Steps to Run:
+## Steps to Run Open Weather API Utlillity:
 
 1. Clone this repository:
    ```bash
@@ -28,8 +28,10 @@ This project has been packaged into a single executable JAR that includes all de
    
 3. Run the application:
    ```bash
-   java -jar target/OpenWeatherAPI-1.0-SNAPSHOT.jar "New York" "54321"
-  Replace "New York" and "54321" with your desired city name or ZIP code.
+   java -cp "absolutePathToDownloaded/OpenWeatherAPI-1.0-SNAPSHOT.jar" org.weather.GeoLocationUtil New York
+  Replace "absolutePathToDownloaded" with path to OpenWeatherAPI-1.0-SNAPSHOT.jar file. (C:\ on Windows, / on Linux or macOS)   
+  Replace New York with your desired city name or ZIP code.
+  
 
 
    
