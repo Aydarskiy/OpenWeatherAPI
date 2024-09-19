@@ -41,7 +41,7 @@ This project has been packaged into a single executable JAR that includes all de
 
 Ensure your `Configuration.properties` file is set up correctly with your own `API_KEY` and `OpenWeatherBaseURL` values.
 
-If you receive a "Path for properties file is invalid" message, make sure that the path to the `Configuration.properties` file is specified correctly in the `ConfigReader` class.
+If you receive a "Path for properties file is invalid" FileNotFoundException message, make sure that the path to the `Configuration.properties` file is specified correctly in the `ConfigReader` class.
 
 
 
